@@ -27,4 +27,19 @@ object Square extends SkinnyCRUDMapperWithId[UUID, Square] {
 
   implicit val instance: MsgpackCodec[Square] =
     MyMsgPack.mapCodecStringKey.codec(Square.apply _, Square.unapply _)("id", "boardId", "x", "y", "bomb", "opened")
+
+  // required into session
+  def batchCreate(xs: Seq[Square])(implicit session: DBSession) = {
+    val values = xs.map { x => Seq(x.id, x.boardId, x.x, x.y, x.bomb, x.opened) }
+    withSQL {
+      insert.into(Square).namedValues(
+        column.id -> sqls.?,
+        column.boardId -> sqls.?,
+        column.x -> sqls.?,
+        column.y -> sqls.?,
+        column.bomb -> sqls.?,
+        column.opened -> sqls.?
+      )
+    }.batch(values:_*).apply()
+  }
 }
