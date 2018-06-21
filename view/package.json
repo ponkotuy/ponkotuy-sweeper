@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pug ./src/pug --out ./public/html/ --pretty"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/ponkotuy/ponkotuy-sweeper/issues"
   },
-  "homepage": "https://github.com/ponkotuy/ponkotuy-sweeper#readme",
-  "scripts": {
-    "build": "pug ./src/pug --out ./public/html/ --pretty"
-  }
+  "homepage": "https://github.com/ponkotuy/ponkotuy-sweeper#readme"
 }
