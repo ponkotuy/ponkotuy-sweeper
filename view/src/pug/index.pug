@@ -1,0 +1,25 @@
+doctype html
+html(lang=ja)
+  head
+    title ponkotuy-sweeper
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/css/mui.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/muicss/0.9.39/js/mui.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/msgpack-lite/0.1.26/msgpack.min.js')
+  body
+    .mui-container-fluid
+      form.mui-form--inline#create_board(@submit.prevent, @submit='create()')
+        legend Create Board
+        .mui-textfield.mui-col-md3
+          input#board_x(type='number', v-model='x')
+          label(for='board_x') X size
+        .mui-textfield.mui-col-md3
+          input#board_y(type='number', v-model='y')
+          label(for='board_y') Y size
+        .mui-textfield.mui-col-md3
+          input#bomb(type='number', v-model='bomb')
+          label(for='bomb') Bomb
+        button.mui-btn(type='submit', :class='{disabled: "!enable_submit"}') Submit
+    script(src='/assets/javascripts/create_board.js')

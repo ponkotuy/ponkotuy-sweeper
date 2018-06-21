@@ -14,7 +14,7 @@ class SquareController @Inject()() extends InjectedController {
   import msgpack4z.CodecInstances.all._
 
   def list() = Action {
-    val sqs = Square(UUID.randomUUID(), UUID.randomUUID(), 1, 1, bomb = true, opened = false) :: Nil
+    val sqs = Square.findAll()
     Ok(MsgpackCodec[List[Square]].toBytes(sqs, MsgOutBuffer.create())).as("application/x-msgpack")
   }
 }

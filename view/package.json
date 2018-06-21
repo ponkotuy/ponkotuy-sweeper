@@ -1,0 +1,27 @@
+{
+  "name": "ponkotuy-sweeper-view",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "pug": "^2.0.3",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ponkotuy/ponkotuy-sweeper.git"
+  },
+  "author": "ponkotuy",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ponkotuy/ponkotuy-sweeper/issues"
+  },
+  "homepage": "https://github.com/ponkotuy/ponkotuy-sweeper#readme",
+  "scripts": {
+    "build": "pug ./src/pug --out ./public/html/ --pretty"
+  }
+}
